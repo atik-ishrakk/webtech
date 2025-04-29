@@ -1,5 +1,8 @@
+<?php
+    include "action_page.php";
+    ?>
 <!DOCTYPE html>
-<html>
+<html >
 <head>
   <title>AutoDrive</title>
   <link rel="stylesheet" href="../css/formstyle.css">
@@ -15,7 +18,7 @@
         <img src="../image/vehicle.jpg" alt="Vehicle" class="vehicle-image">
         <div class="success-message" id="success-message">Form Submitted Successfully!</div>
 
-        <form id="registration-form" onsubmit="return validateForm()" action="action_page.php" method="post" target="_blank">
+        <form id="registration-form" onsubmit="return validateForm()" action="../control/action_page.php" method="post" target="_blank">
             <fieldset>
                 <legend>Owner Details</legend>
                 <table>
@@ -204,7 +207,7 @@
                 </table>
             </fieldset>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit">/*isset*/
             <input type="reset" value="Clear">
         </form>
     </div>

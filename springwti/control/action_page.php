@@ -6,6 +6,16 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+    if(isset($_REQUEST["Submit"])){
+        if (empty($_REQUEST["fname"]=="")){
+            echo "Invalid";
+        }
+        else{
+            echo $_REQUEST["fname"];
+        }
+    }
+    ?>
     <h2>Form Submitted Successfully!</h2>
 
 </body>
