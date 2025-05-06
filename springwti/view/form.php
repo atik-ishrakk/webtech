@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../css/formstyle.css">
 </head>
 <body>
-    <div class="form">
+    <div class="container">
         <div class="headline">Vehicle<br>Registration<br>Form</div>
         <img src="../image/vehicle.jpg" class="image">
         <div class="success-message" id="success-message">
@@ -75,12 +75,12 @@
                 </tr>
                 <tr>
                     <td><label for="year">Manufacture Year:</label></td>
-                    <td><input type="number" id="year" name="year" placeholder="dd-mm-yyyy" min="1900" max="2025"></td>
+                    <td><input type="date" id="year" name="year" placeholder="dd-mm-yyyy" min="1900" max="2025"></td>
                 </tr>
             </table>
         </fieldset>
             <input type="submit" name="Submit" value="Submit" class="button submit">
-            <input type="reset" value="Clear" class="button clear">
+            <input type="submit" name="clear" value="Clear" class="button clear">
     </form></div>
     
 </body>

@@ -1,10 +1,9 @@
 <?php
-$fname=$lname=$phone=$email=$gender="";
+$lname=$phone=$email=$gender="";
 $fnameError = $lnameError = $phoneError = $emailError = $genderError = $addressError="";
 $successMessage = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // First Name Validation
     if (empty($_POST["fname"])) {
         $fnameError = "First name is required.";
     } elseif (!preg_match("/^[A-Za-z]+$/", $_POST["fname"])) {
@@ -13,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fname = $_POST["fname"];
     }
 
-    // Last Name Validation
+
     if (empty($_POST["lname"])) {
         $lnameError = "Last name is required.";
     } elseif (!preg_match("/^[A-Za-z]+$/", $_POST["lname"])) {
@@ -22,16 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $lname = $_POST["lname"];
     }
 
-    // Phone Validation
+
     if (empty($_POST["phone"])) {
         $phoneError = "Phone number is required.";
-    } elseif (!preg_match("/^\+8801\d{8}$/", $_POST["phone"])) {
+    } elseif (!preg_match("/^\+8801\d{9}$/", $_POST["phone"])) {
         $phoneError = "Phone number must be in the format +8801XXXXXXXXX.";
     } else {
         $phone = $_POST["phone"];
     }
     
-    // Email Validation
     if (empty($_POST["email"])) {
         $emailError = "Email is required.";
     } elseif (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
@@ -40,23 +38,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
     }
 
-    // Gender Validation
+
     if (empty($_POST["gender"])) {
         $genderError = "Gender is required.";
     } else {
         $gender = $_POST["gender"];
     }
-    //Address Validation
+
     if (empty($_POST["address"])) {
         $addressError = "Address is required.";
     } else {
         $address = $_POST["address"];
     }
 
-    //IF all passed validation
-    if (!$fnameError && !$lnameError && !$phoneError && !$emailError && !$genderError && !$addressError) {
-        $successMessage = "Form submitted successfully!";
+    if (isset($_POST['clear'])) {
         $fname = $lname = $phone = $email = $gender = $address = "";
-        $fnameError = $lnameError = $phoneError = $emailError = $genderError = $addressError = "";
+        $fnameError = $lnameError = $phoneError = $emailError = $genderError = $addressError="";
+        $successMessage = "";
+    }
+
+    if (!$fnameError && !$lnameError && !$phoneError && !$emailError && !$genderError && !$addressError &&
+     !empty($fname) && !empty($lname) && !empty($phone) && !empty($email) && !empty($gender) && !empty($address)) {
+        $successMessage = "Form submitted successfully!";
+        $successMessage.= "<br>First Name: $fname";
+        $successMessage.= "<br>Last Name: $lname";
+        $successMessage.= "<br>Phone: $phone";
+        $successMessage.= "<br>Email: $email";
+        $successMessage.= "<br>Address: $address";
     }
 }
