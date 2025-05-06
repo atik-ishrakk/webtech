@@ -1,128 +1,92 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  padding: 20px;
   display: flex;
   justify-content: center;
-  background-size: cover;
+  align-self: center;
 }
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  pointer-events: none;
-  z-index: 0; 
-}
-.form-container {
+.form{
   background: rgba(210, 217, 224, 0.95);
   padding: 20px;
   border-radius: 10px;
   max-width: 700px;
-  width: 100%;
   position: relative;
-  z-index: 1;
 }
 .headline {
   position: absolute;
   color: #e74c3c;
   font-weight: 800;
-  font-size: 3vw;
-  margin: 15%;
-  z-index: 3;
-}
-.vehicle-image {
-  position: relative;
-  margin: 0;
-  max-width: 100%;
-  height: 550px;
-  border-radius: 8px;
-  object-fit: cover;
+  font-size: 60px;
+  margin: 7%;
   z-index: 2;
+}
+.image {
+  position: relative;
+  height: 450px;
+  border-radius: 5px;
+  z-index: 1;
 }
 fieldset {
   border: 2px solid #3498db;
   border-radius: 8px;
   margin-bottom: 15px;
-  padding: 15px;
-  position: relative;
-  z-index: 4;
+  padding: 10px;
 }
-legend {
+legend{
+  font-size: 18px;
   font-weight: bold;
-  color: #2c3e50;
+  color: #3498db;
   padding: 0 10px;
 }
-table {
-  width: 100%;
+label{
+  width: 120px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  display: block;
 }
-td {
-  padding: 8px;
-  vertical-align: top;
-}
-label {
-  font-weight: 600;
-  color: #34495e;
-}
+
 input[type="text"],
 input[type="email"],
 input[type="number"],
 input[type="date"],
 select,
 textarea {
-  width: 100%;
+  width: 350px;
   padding: 8px;
   border: 1px solid #bdc3c7;
   border-radius: 5px;
   box-sizing: border-box;
   font-size: 14px;
-  z-index: 5;
 }
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: #3498db;
-  outline: none;
-}
-.error {
-  color: #e74c3c;
+.error{
+  color: #ff0000;
   font-size: 12px;
-  display: none;
+  display: block;
   margin-top: 5px;
-  z-index: 6;
 }
-input[type="radio"] {
-  margin: 0 5px 0 10px;
-}
-input[type="submit"],
-input[type="reset"] {
-  padding: 10px 20px;
+.button{
+  background-color: #3498db;
+  color: white;
+  padding: 7px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  margin: 5px;
-  z-index: 6;
+  font-weight: bold;
+  margin-top: 5px;
 }
-input[type="submit"] {
-  background: #35cc74;
-  color: #fff;
+.submit{
+  background-color: #2ecc71;
 }
-input[type="submit"]:hover {
-  background: #17be33;
+.clear{
+  background-color: #e74c3c;
 }
-input[type="reset"] {
-  background: #95a5a6;
-  color: #fff;
-}
-input[type="reset"]:hover {
-  background: #7f8c8d;
-}
-.success-message {
-  display: none;
+.success-message{
+  color: #dd8109;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
   text-align: center;
-  color: #2ecc71;
-  font-size: 1.5em;
-  margin: 15px 0;
-  z-index: 6;
 }
