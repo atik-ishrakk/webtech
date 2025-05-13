@@ -54,6 +54,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fname"])) {
         $fnameError = $lnameError = $phoneError = $emailError = $genderError = $addressError="";
         $successMessage = "";
     }
+    if($_FILES["myfile"]["name"]==""){
+        echo "NO file uploaded";
+    }else{
+        if (move_uploaded_files(echo $_FILES["myfile"]["name"], "../uploads/".$_FILES["myfile"]["name"])){
+            echo "File uploaded";
+        }
+        else{
+            echo "Upload did not reach if statement";
+        }
+    }
 
     if (!$fnameError && !$lnameError && !$phoneError && !$emailError && !$genderError && !$addressError &&
      !empty($fname) && !empty($lname) && !empty($phone) && !empty($email) && !empty($gender) && !empty($address)) {

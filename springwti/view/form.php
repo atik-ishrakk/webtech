@@ -12,7 +12,7 @@
         <div class="success-message" id="success-message">
             <?php echo $successMessage; ?>
         </div>
-    <div><form id="form" action="" method="post" autocomplete="on">
+    <div><form id="form" action="" method="post" autocomplete="on" enctype="multipart/form-data">
         <fieldset>
             <legend>Owner Details</legend>
             <table>
@@ -78,6 +78,9 @@
                     <td><input type="date" id="year" name="year" placeholder="dd-mm-yyyy" min="1900" max="2025"></td>
                 </tr>
             </table>
+        <div>
+            <input type="file" name="myfile" >
+        </div>
         </fieldset>
             <input type="submit" name="Submit" value="Submit" class="button submit">
             <input type="submit" name="clear" value="Clear" class="button clear">
