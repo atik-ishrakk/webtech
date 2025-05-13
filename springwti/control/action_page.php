@@ -1,9 +1,9 @@
 <?php
-$lname=$phone=$email=$gender="";
+$fname=$lname=$phone=$email=$gender=$address="";
 $fnameError = $lnameError = $phoneError = $emailError = $genderError = $addressError="";
 $successMessage = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fname"])) {
     if (empty($_POST["fname"])) {
         $fnameError = "First name is required.";
     } elseif (!preg_match("/^[A-Za-z]+$/", $_POST["fname"])) {
@@ -12,7 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $fname = $_POST["fname"];
     }
 
-
     if (empty($_POST["lname"])) {
         $lnameError = "Last name is required.";
     } elseif (!preg_match("/^[A-Za-z]+$/", $_POST["lname"])) {
@@ -20,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $lname = $_POST["lname"];
     }
-
 
     if (empty($_POST["phone"])) {
         $phoneError = "Phone number is required.";
@@ -59,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!$fnameError && !$lnameError && !$phoneError && !$emailError && !$genderError && !$addressError &&
      !empty($fname) && !empty($lname) && !empty($phone) && !empty($email) && !empty($gender) && !empty($address)) {
-        $successMessage = "Form submitted successfully!";
+        $successMessage = "Your Form is submitted successfully!";
         $successMessage.= "<br>First Name: $fname";
         $successMessage.= "<br>Last Name: $lname";
         $successMessage.= "<br>Phone: $phone";

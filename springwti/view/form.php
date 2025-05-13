@@ -46,11 +46,11 @@
                     </td>
                     <td><span class="error"><?php echo $genderError; ?></span></td>
                 </tr>
-                <tr><td>
-                    <label for="address">Address:</label></td>
-                    <td><textarea id="address" name="address" rows="4" cols="50" placeholder="Your Address"></textarea></td>
+                <tr>
+                    <td><label for="address">Address:</label></td>
+                    <td><textarea id="address" name="address" rows="4" cols="50" placeholder="Your Address"><?php echo htmlspecialchars($address); ?></textarea></td>
                     <td><span class="error"><?php echo $addressError; ?></span></td>
-                </td></tr>
+                </tr>
             </table>
         </fieldset>
         <fieldset>

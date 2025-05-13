@@ -48,29 +48,16 @@ button {
     color:  white;
     font-size: 35px;
     font-weight: bold;
-    transition: background-color .3s ease;
 }
-button:hover {
-    background-color: #007bff;
-}
-button:active {
-    background-color: #28a745;
-}
+
 button.operator-btn-C {
     background-color: #d9534f;
 }
-button.operator-btn-C:hover {
-    background-color: #c9302c;
-}
+
 button.operator-btn {
     background-color: orange;
 }
-button.operator-btn:hover {
-    background-color: #5a6268;
-}
+
 button.operator-btn-mod {
     background-color: #fd7e14;
-}
-button.operator-btn-mod:hover {
-    background-color: #e67e22;
 }
