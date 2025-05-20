@@ -1,4 +1,10 @@
 <?php
+include "db.php";
+$servername = "localhost";
+$username = "root";
+$password = "123";
+$dbname = "vreg";
+
 $fname=$lname=$phone=$email=$gender=$address="";
 $fnameError = $lnameError = $phoneError = $emailError = $genderError = $addressError="";
 $successMessage = "";
@@ -54,24 +60,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["fname"])) {
         $fnameError = $lnameError = $phoneError = $emailError = $genderError = $addressError="";
         $successMessage = "";
     }
-    if($_FILES["myfile"]["name"]==""){
-        echo "NO file uploaded";
-    }else{
-        if (move_uploaded_files(echo $_FILES["myfile"]["name"], "../uploads/".$_FILES["myfile"]["name"])){
-            echo "File uploaded";
-        }
-        else{
-            echo "Upload did not reach if statement";
-        }
-    }
 
     if (!$fnameError && !$lnameError && !$phoneError && !$emailError && !$genderError && !$addressError &&
      !empty($fname) && !empty($lname) && !empty($phone) && !empty($email) && !empty($gender) && !empty($address)) {
-        $successMessage = "Your Form is submitted successfully!";
+        $successMessage.= "Your Form is submitted successfully!";
         $successMessage.= "<br>First Name: $fname";
         $successMessage.= "<br>Last Name: $lname";
         $successMessage.= "<br>Phone: $phone";
         $successMessage.= "<br>Email: $email";
         $successMessage.= "<br>Address: $address";
     }
+    
+    if($_FILES["myfile"]["name"]==""){
+        echo "NO file uploaded";
+    }
+    else{
+        if (move_uploaded_file($_FILES["myfile"]["tmp_name"], "../upload/" . basename($_FILES["myfile"]["name"]))) {
+            $successMessage.= "<br>File uploaded successfully.";
+        } else {
+            $successMessage.= "<br>File uploading failed.";
+        }
+    }
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+
 }

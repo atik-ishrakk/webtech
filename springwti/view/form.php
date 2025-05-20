@@ -77,10 +77,11 @@
                     <td><label for="year">Manufacture Year:</label></td>
                     <td><input type="date" id="year" name="year" placeholder="dd-mm-yyyy" min="1900" max="2025"></td>
                 </tr>
+                <tr>
+                    <td><label for="myfile">Upload File:</label></td>
+                    <td><input type="file" name="myfile" for="myfile" id="myfile"></td>
+                </tr>
             </table>
-        <div>
-            <input type="file" name="myfile" >
-        </div>
         </fieldset>
             <input type="submit" name="Submit" value="Submit" class="button submit">
             <input type="submit" name="clear" value="Clear" class="button clear">
