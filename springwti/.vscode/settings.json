@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.multiRootWorkspaceName": "springwti"
+    "liveServer.settings.multiRootWorkspaceName": "springwti",
+    "liveServer.settings.port": 5501
 }
